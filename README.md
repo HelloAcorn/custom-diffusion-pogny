@@ -9,3 +9,6 @@
 
 # Training POGNY to SD 1.4
 ![image](https://github.com/user-attachments/assets/a31d9bed-7cbe-4b5f-b883-ef78e1ed81ac)
+
+# Blog Post
+[Multi-Concept Customization of Text-to-Image Diffusion 실습](https://wzacorn.tistory.com/119)
