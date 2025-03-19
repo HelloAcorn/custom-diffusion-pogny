@@ -16,12 +16,12 @@ do
 done
 
 
-python src/retrieve.py --target_name "${ARRAY[0]}" --outpath ${ARRAY[2]}
+# python src/retrieve.py --target_name "${ARRAY[0]}" --outpath ${ARRAY[2]}
 
 if [ "${ARRAY[4]}" == "finetune.yaml" ]; then
     python -u  train.py \
             --base configs/custom-diffusion/${ARRAY[4]}  \
-            -t --gpus 0,1 \
+            -t --gpus ,1 \
             --resume-from-checkpoint-custom  ${ARRAY[5]} \
             --caption "${ARRAY[0]}" \
             --datapath ${ARRAY[1]} \
@@ -31,7 +31,7 @@ if [ "${ARRAY[4]}" == "finetune.yaml" ]; then
 else
     python -u  train.py \
             --base configs/custom-diffusion/${ARRAY[4]}  \
-            -t --gpus 0,1 \
+            -t --gpus ,1 \
             --resume-from-checkpoint-custom  ${ARRAY[5]} \
             --caption "<new1> ${ARRAY[0]}" \
             --datapath ${ARRAY[1]} \

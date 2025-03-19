@@ -90,7 +90,7 @@
 # - To provide medical advice and medical results interpretation;
 # - To generate or disseminate information for the purpose to be used for administration of justice, law enforcement, immigration or asylum processes, such as predicting an individual will commit fraud/crime commitment (e.g. by text profiling, drawing causal relationships between assertions made in documents, indiscriminate and arbitrarily-targeted use).
 model:
-  base_learning_rate: 1.0e-05
+  base_learning_rate: 4.0e-05
   target: src.model.CustomDiffusion
   params:
     linear_start: 0.00085
@@ -181,4 +181,4 @@ lightning:
         increase_log_steps: False
 
   trainer:
-    max_steps: 300
+    max_steps: 600

@@ -311,6 +311,14 @@ def main():
         config.model.params.cond_stage_config.params = {}
         config.model.params.cond_stage_config.params.modifier_token = opt.modifier_token
     model = load_model_from_config(config, f"{opt.ckpt}")
+    
+    # # --- 여기서 새로운 토큰 1개 추가하는 코드 시작 ---
+    # old_weight = model.cond_stage_model.transformer.text_model.embeddings.token_embedding.weight.data
+    # new_token = torch.randn(1, old_weight.size(1), device=old_weight.device) * old_weight.std()
+    # new_weight = torch.cat([old_weight, new_token], dim=0)
+    # model.cond_stage_model.transformer.text_model.embeddings.token_embedding.weight.data = new_weight
+    # print("New token added. New shape:", new_weight.shape)
+    # # --- 여기서 새로운 토큰 1개 추가하는 코드 끝 ---
 
     if opt.delta_ckpt is not None:
         delta_st = torch.load(opt.delta_ckpt)
